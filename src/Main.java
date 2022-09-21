@@ -1,12 +1,17 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        /*
+
 
         Scanner input = new Scanner(System.in);
 
-        /*
 
 
         System.out.print("Por favor, introduce tu nombre:");
@@ -29,7 +34,7 @@ public class Main {
         System.out.print("Tienes " + age + " años");
         input.nextLine();
 
- */
+
 
         System.out.println("Por favor, introduce la frase: ");
         String frase = input.nextLine();
@@ -54,17 +59,6 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-
-/*
-
-
         String[] words = frase.split(" ");
         int counter = 0;
         for (String word : words) {
@@ -75,6 +69,33 @@ public class Main {
 
  */
 
+        FileWriter writer = new FileWriter("demo.txt", false);
+
+        String name = "Jaume";
+        String age = "33";
+
+        writer.write("Hola clase \nQué tal? \n");
+        writer.write("Soy vuestro profe "+ name + "\n");
+        writer.write("Tengo "+ age + " años\n");
+
+        writer.close();
+
+        File file = new File("demo.txt");
+
+        Scanner fileReader = new Scanner(file);
+
+        while (fileReader.hasNextLine()) {
+            String[] words = fileReader.nextLine().split(" ");
+            for (String word : words) {
+                System.out.println(word);
+                char[] chars = word.toCharArray();
+                for (char c : chars) {
+                    System.out.println(c);
+                }
+            }
+        }
+
+        fileReader.close();
 
     }
 }
