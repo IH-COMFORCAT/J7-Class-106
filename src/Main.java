@@ -67,7 +67,7 @@ public class Main {
         }
         System.out.println("Total words starting with a vowel: " + counter);
 
- */
+
 
         FileWriter writer = new FileWriter("demo.txt", false);
 
@@ -96,6 +96,35 @@ public class Main {
         }
 
         fileReader.close();
+
+
+         */
+
+        File oscars = new File("oscar_age.csv");
+        Scanner reader = new Scanner(oscars);
+        FileWriter writer = new FileWriter("result.txt", false);
+
+
+        reader.nextLine();
+
+
+        while (reader.hasNextLine()) {
+            String[] words = reader.nextLine().split(", ");
+            String name = words[3];
+            String year = words[1];
+            String age = words[2];
+            String movie = words[4];
+            String separator = "==========";
+            writer.write("Name: " + name + "\n");
+            writer.write("Year: " + year + "\n");
+            writer.write("Age: " + age + "\n");
+            writer.write("Movie: " + movie + "\n");
+            writer.write(separator + "\n");
+        }
+
+        reader.close();
+        writer.close();
+
 
     }
 }
