@@ -1,9 +1,13 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
+
+        /*
+
 
         System.out.print("Por favor, introduce tu nombre:");
         String name = input.nextLine();
@@ -23,16 +27,53 @@ public class Main {
 
 
         System.out.print("Tienes " + age + " años");
+        input.nextLine();
 
+ */
 
+        System.out.println("Por favor, introduce la frase: ");
         String frase = input.nextLine();
-        //El perro de San Roque no tiene rabo o quizas si
-        //perro no empieza por vocal
-        //de no empieza por vocal
-        //San no empieza por vocal
-        //..
-        //Total palabras palabras que empiezan por vocal: 2
 
+        String[] words = frase.split(" ");
+
+        System.out.println(Arrays.toString(words));
+
+        int counter  = 0;
+
+        for (String word : words) {
+            if (word.toLowerCase().startsWith("a")
+                    || word.toLowerCase().startsWith("e")
+                    || word.toLowerCase().startsWith("i")
+                    || word.toLowerCase().startsWith("o")
+                    || word.toLowerCase().startsWith("u")
+            ) counter++;
+            else System.err.println("La palabra "+ word + " no empieza por vocal");
+        }
+        System.out.println("Total palabras que empiezan por vocal: " + counter);
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+        String[] words = frase.split(" ");
+        int counter = 0;
+        for (String word : words) {
+            if (word.matches("(\\b[AaEeIiOoUu]+[\\w]*\\b)")) counter++;
+            else System.err.println("Word " + word + " doesn't start with a vowel");
+        }
+        System.out.println("Total words starting with a vowel: " + counter);
+
+ */
 
 
     }
